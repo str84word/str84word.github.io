@@ -190,6 +190,210 @@
             
 
   
+    <article id="post-Maven学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" target="_blank">Maven使用笔记</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+        <time datetime="2020-04-10T07:07:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Maven的使用笔记"><a href="#Maven的使用笔记" class="headerlink" title="Maven的使用笔记"></a>Maven的使用笔记</h1><h2 id="0-为什么要学Maven"><a href="#0-为什么要学Maven" class="headerlink" title="0)为什么要学Maven"></a>0)为什么要学Maven</h2><p>Maven能帮你构建工程，管理 jar 包，编译代码，还能帮你自动运行单元测试,打包,生成报表,甚至能帮你部署项目,生成 Web 站点</p>
+<p><strong>学习视频路径</strong></p>
+<p><a href="https://www.bilibili.com/video/BV124411H7Fj/?p=3&amp;t=72" target="_blank" rel="noopener">https://www.bilibili.com/video/BV124411H7Fj/?p=3&amp;t=72</a></p>
+<p>这里Maven的规建过程</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/a4.png" alt="a4"></p>
+<p>在前面的学习中我已经学习了如何使用Tomcat运行一个web项目,将我们的前端页面部署到本地服务器,用localhost:8080打开</p>
+<h2 id="1-如何安装Maven"><a href="#1-如何安装Maven" class="headerlink" title="1)如何安装Maven"></a>1)如何安装Maven</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>此次全部配置都是基于Macos下的,使用的编译器为intelliJ IDEA2019.3.3 maven 版本:3.6.3</p>
+<h3 id="1-进入官网"><a href="#1-进入官网" class="headerlink" title="1.进入官网"></a>1.进入官网</h3><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
+<h4 id="点击download"><a href="#点击download" class="headerlink" title="点击download"></a>点击download</h4><p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1.png" alt="1"></p>
+<p>解压后放到任意一个文件夹下面 记得路径</p>
+<p>我图方便就放在了/users/下面的</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/a5.png" alt="a5"></p>
+<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h3><p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/b1.png" alt="b1"></p>
+<p>在最后一行放入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Maven</span><br><span class="line">export PATH&#x3D;&quot;&#x2F;Users&#x2F;apache-maven-3.6.3:$PATH&quot;</span><br><span class="line">export PATH&#x3D;&quot;&#x2F;Users&#x2F;apache-maven-3.6.3&#x2F;bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这里的地址记得改成自己的</p>
+<p>![2(2.png)</p>
+<p>保存退出</p>
+<p>继续在终端输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/b3.png" alt="b3"></p>
+<h3 id="3-测试Maven的安装"><a href="#3-测试Maven的安装" class="headerlink" title="3.测试Maven的安装"></a>3.测试Maven的安装</h3><p>在终端输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/b2.png" alt="b2"></p>
+<h2 id="2-在IDEA中配置我们的Maven"><a href="#2-在IDEA中配置我们的Maven" class="headerlink" title="2)在IDEA中配置我们的Maven"></a>2)在IDEA中配置我们的Maven</h2><p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/3.png" alt="3"></p>
+<p>OK!!!</p>
+<h2 id="3-开始我们的Maven学习"><a href="#3-开始我们的Maven学习" class="headerlink" title="3)开始我们的Maven学习"></a>3)开始我们的Maven学习</h2><h3 id="1-仓库的种类和彼此关系"><a href="#1-仓库的种类和彼此关系" class="headerlink" title="1.仓库的种类和彼此关系"></a>1.仓库的种类和彼此关系</h3><p>maven工程利用jar的地址,在(系统盘)本地仓库中,而中央仓库中,放置了所有的开源jar包.在本地仓库的中没有的jar包,需要到中央仓库和远程仓库中.</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/a1.png" alt="a1"></p>
+<h3 id="2-标准目录结构"><a href="#2-标准目录结构" class="headerlink" title="2.标准目录结构"></a>2.标准目录结构</h3><ol>
+<li>核心代码部分</li>
+<li>配置文件部分</li>
+<li>测试代码部分</li>
+<li>测试配置文件</li>
+</ol>
+<p>在我们的maven项目中使用下面的目录</p>
+<ol>
+<li>src/main/java 核心代码部分</li>
+<li>src/main/resources 配置文件部分</li>
+<li>src/test/java 测试代码部分</li>
+<li>src/test/resources 测试配置文件</li>
+<li>src/main/webapp 页面资源(js/css/html)</li>
+</ol>
+<h3 id="3-Maven常用命令"><a href="#3-Maven常用命令" class="headerlink" title="3.Maven常用命令"></a>3.Maven常用命令</h3><p>mvn-v </p>
+<p>mvn -clean</p>
+<p>mvn compile </p>
+<p>mvn test </p>
+<p>mvn package</p>
+<p>mvn install </p>
+<p>mvn deploy</p>
+<h3 id="4-Maven生命周期"><a href="#4-Maven生命周期" class="headerlink" title="4.Maven生命周期"></a>4.Maven生命周期</h3><p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/a3.png" alt="a3"></p>
+<ol>
+<li>清理生命周期 clean</li>
+<li>默认生命周期<ol>
+<li>编译 compile</li>
+<li>测试 test</li>
+<li>打包 package</li>
+<li>安装 install</li>
+<li>发布 delay    </li>
+</ol>
+</li>
+<li>站点生命周期</li>
+</ol>
+<h3 id="5-模型概念图"><a href="#5-模型概念图" class="headerlink" title="5.模型概念图"></a>5.模型概念图</h3><p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/a2.png" alt="a2"></p>
+<p>依赖管理</p>
+<p>在pom.xml文件</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/d1.png" alt="d1"></p>
+<h2 id="4-IDEA下的使用"><a href="#4-IDEA下的使用" class="headerlink" title="4)IDEA下的使用"></a>4)IDEA下的使用</h2><h3 id="1-更换镜像源"><a href="#1-更换镜像源" class="headerlink" title="1.更换镜像源"></a>1.更换镜像源</h3><p>在settings.xml中把镜像源换了</p>
+<p>换成我们国内淘宝的镜像源</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- mirror</span></span><br><span class="line"><span class="comment">   | Specifies a repository mirror site to use instead of a given repository. The repository that</span></span><br><span class="line"><span class="comment">   | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used</span></span><br><span class="line"><span class="comment">   | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.</span></span><br><span class="line"><span class="comment">   |</span></span><br><span class="line"><span class="comment">  &lt;mirror&gt;</span></span><br><span class="line"><span class="comment">    &lt;id&gt;mirrorId&lt;/id&gt;</span></span><br><span class="line"><span class="comment">    &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;</span></span><br><span class="line"><span class="comment">    &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span></span><br><span class="line"><span class="comment">    &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;</span></span><br><span class="line"><span class="comment">  &lt;/mirror&gt;</span></span><br><span class="line"><span class="comment">   --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>       </span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-通过部署Web项目验证Maven在IDEA下的安装"><a href="#2-通过部署Web项目验证Maven在IDEA下的安装" class="headerlink" title="2.通过部署Web项目验证Maven在IDEA下的安装"></a>2.通过部署Web项目验证Maven在IDEA下的安装</h3><p>1、新建一个项目工程</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/4.png" alt="4"></p>
+<p>2、选择maven 和java版本 勾选creat from archetype</p>
+<p>选择webapp</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/5.png" alt="5"></p>
+<p>3、给项目命名</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/6.png" alt="6"></p>
+<p>4、选择你前面安装的maven路径和配置的仓库名称</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/7.png" alt="7"></p>
+<p>5、出现下面的提示 都点击</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/8.png" alt="8"></p>
+<p>6、在与webapp同级的main路径下增加一个java文件</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/9.png" alt="9"></p>
+<p>右键点击Mark Directory as Sources Root</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/10.png" alt="10"></p>
+<p>7、在Java下新建一个Package (我截图点击的位置不对 )</p>
+<p>取名为com</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/11.png" alt="11"></p>
+<p>在com新建一个servlet文件 发现没有这个选析</p>
+<p>打开settings/Project Structure中找到Modules 点击勾选,应用 确定</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/12.png" alt="12"></p>
+<p>回到com目录 新建就会发现多了一个servlet文件选项 我们建立一个firstservlet文件</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/13.png" alt="13"></p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/14.png" alt="14"></p>
+<p>发现新建的web.xml文件有错误</p>
+<p>在底下添加</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/15.png" alt="15"></p>
+<p>url-pattern不用管他</p>
+<h3 id="配置Maven的tomcat插件"><a href="#配置Maven的tomcat插件" class="headerlink" title="配置Maven的tomcat插件"></a>配置Maven的tomcat插件</h3><p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/20.png" alt="20"></p>
+<p>添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 添加tomcat插件 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">port</span>&gt;</span>8090<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/21.png" alt="21"></p>
+<p>在run 打开edit config</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/b5.png" alt="b5"></p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/22.png" alt="22"></p>
+<p>记住刚刚添加的依赖的tomcat版本</p>
+<p>我们使用的是7</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/23.png" alt="23"></p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/24.png" alt="24"></p>
+<p>点击绿色三角运行</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/b4.png" alt="b4"></p>
+<p>回到我们的servlet文件</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/25.png" alt="25"></p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/26.png" alt="26"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">firstServlet</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">servlet</span>.<span class="title">http</span>.<span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request,response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException </span>&#123;</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/hello.jsp"</span>).forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在webapp目录下新建一个hello.jsp文件<br><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/c1.png" alt="c1"></p>
+<p>再次点击运行</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/c2.png" alt="c2"></p>
+<p>点击<a href="http://localhost:8070/" target="_blank" rel="noopener">http://localhost:8070/</a></p>
+<p>可以看到我们的hello Maven!!!</p>
+<p><img src="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/27.png" alt="27"></p>
+<p>说明servlet配置完成!!!</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/04/10/Maven%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ceshi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -219,7 +423,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="/1.png" alt="1"></p>
+    <p><img src="/2020/04/09/ceshi/1.png" alt="1"></p>
 
     
 
@@ -236,376 +440,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/04/09/ceshi/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Maven的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/09/Maven%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank">Maven的使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/09/Maven%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2020-04-09T01:37:35.302Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Maven的使用笔记"><a href="#Maven的使用笔记" class="headerlink" title="Maven的使用笔记"></a>Maven的使用笔记</h1><h2 id="0-为什么要学Maven"><a href="#0-为什么要学Maven" class="headerlink" title="0)为什么要学Maven"></a>0)为什么要学Maven</h2><p>Maven能帮你构建工程，管理 jar 包，编译代码，还能帮你自动运行单元测试,打包,生成报表,甚至能帮你部署项目,生成 Web 站点</p>
-<p><strong>学习视频路径</strong></p>
-<p><a href="https://www.bilibili.com/video/BV124411H7Fj/?p=3&amp;t=72" target="_blank" rel="noopener">https://www.bilibili.com/video/BV124411H7Fj/?p=3&amp;t=72</a></p>
-<p>这里Maven的规建过程</p>
-<p><img src="/Users/apple1/Library/Containers/com.tencent.qq/Data/Library/Caches/Images/2C5D42183B75956110292168B9FCCA95.png" alt="2C5D42183B75956110292168B9FCCA95"></p>
-<p>在前面的学习中我已经学习了如何使用Tomcat运行一个web项目,将我们的前端页面部署到本地服务器,用localhost:8080打开</p>
-<h2 id="1-如何安装Maven"><a href="#1-如何安装Maven" class="headerlink" title="1)如何安装Maven"></a>1)如何安装Maven</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>此次全部配置都是基于Macos下的,使用的编译器为intelliJ IDEA2019.3.3 maven 版本:3.6.3</p>
-<h3 id="1-进入官网"><a href="#1-进入官网" class="headerlink" title="1.进入官网"></a>1.进入官网</h3><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></p>
-<h4 id="点击download"><a href="#点击download" class="headerlink" title="点击download"></a>点击download</h4><p><img src="/Users/apple1/Desktop/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8A%E5%8D%8810.10.41.png" alt="截屏2020-04-09上午10.10.41"></p>
-<p>![fanzz](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09上午10.11.42.png)</p>
-<p>解压后放到任意一个文件夹下面 记得路径</p>
-<p>我图方便就放在了/users/下面的</p>
-<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h3><p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
-
-<p>![截屏2020-04-09上午10.14.24](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09上午10.14.24.png)</p>
-<p>在最后一行放入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Maven</span><br><span class="line">export PATH&#x3D;&quot;&#x2F;Users&#x2F;apache-maven-3.6.3:$PATH&quot;</span><br><span class="line">export PATH&#x3D;&quot;&#x2F;Users&#x2F;apache-maven-3.6.3&#x2F;bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
-
-<p>这里的地址记得改成自己的</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8A%E5%8D%8810.15.14.png" alt="截屏2020-04-09上午10.15.14"></p>
-<p>保存退出</p>
-<p>继续在终端输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
-
-<p>![截屏2020-04-09上午10.19.11](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09上午10.19.11.png)</p>
-<h3 id="3-测试Maven的安装"><a href="#3-测试Maven的安装" class="headerlink" title="3.测试Maven的安装"></a>3.测试Maven的安装</h3><p>在终端输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
-
-<p>![截屏2020-04-09上午10.20.06](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09上午10.20.06.png)</p>
-<h2 id="2-在IDEA中配置我们的Maven"><a href="#2-在IDEA中配置我们的Maven" class="headerlink" title="2)在IDEA中配置我们的Maven"></a>2)在IDEA中配置我们的Maven</h2><p><img src="/Users/apple1/Desktop/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8A%E5%8D%8810.37.12.png" alt="截屏2020-04-09上午10.37.12"></p>
-<p>OK!!!</p>
-<h2 id="3-开始我们的Maven学习"><a href="#3-开始我们的Maven学习" class="headerlink" title="3)开始我们的Maven学习"></a>3)开始我们的Maven学习</h2><h3 id="1-仓库的种类和彼此关系"><a href="#1-仓库的种类和彼此关系" class="headerlink" title="1.仓库的种类和彼此关系"></a>1.仓库的种类和彼此关系</h3><p>maven工程利用jar的地址,在(系统盘)本地仓库中,而中央仓库中,放置了所有的开源jar包.在本地仓库的中没有的jar包,需要到中央仓库和远程仓库中.</p>
-<p><img src="/Users/apple1/Desktop/img/maven%E4%BB%93%E5%BA%93%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%92%8C%E5%85%B3%E7%B3%BB.png" alt="maven仓库的种类和关系"></p>
-<h3 id="2-标准目录结构"><a href="#2-标准目录结构" class="headerlink" title="2.标准目录结构"></a>2.标准目录结构</h3><ol>
-<li>核心代码部分</li>
-<li>配置文件部分</li>
-<li>测试代码部分</li>
-<li>测试配置文件</li>
-</ol>
-<p>在我们的maven项目中使用下面的目录</p>
-<ol>
-<li>src/main/java 核心代码部分</li>
-<li>src/main/resources 配置文件部分</li>
-<li>src/test/java 测试代码部分</li>
-<li>src/test/resources 测试配置文件</li>
-<li>src/main/webapp 页面资源(js/css/html)</li>
-</ol>
-<h3 id="3-Maven常用命令"><a href="#3-Maven常用命令" class="headerlink" title="3.Maven常用命令"></a>3.Maven常用命令</h3><p>mvn-v </p>
-<p>mvn -clean</p>
-<p>mvn compile </p>
-<p>mvn test </p>
-<p>mvn package</p>
-<p>mvn install </p>
-<p>mvn deploy</p>
-<h3 id="4-Maven生命周期"><a href="#4-Maven生命周期" class="headerlink" title="4.Maven生命周期"></a>4.Maven生命周期</h3><p><img src="/Users/apple1/Desktop/img/maven%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="maven生命周期"></p>
-<ol>
-<li>清理生命周期 clean</li>
-<li>默认生命周期<ol>
-<li>编译 compile</li>
-<li>测试 test</li>
-<li>打包 package</li>
-<li>安装 install</li>
-<li>发布 delay    </li>
-</ol>
-</li>
-<li>站点生命周期</li>
-</ol>
-<h3 id="5-模型概念图"><a href="#5-模型概念图" class="headerlink" title="5.模型概念图"></a>5.模型概念图</h3><p><img src="/Users/apple1/Desktop/img/maven%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%9B%BE.png" alt="maven概念模型图"></p>
-<p>依赖管理</p>
-<p>在pom.xml文件</p>
-<p>![截屏2020-04-09下午4.56.17](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09下午4.56.17.png)</p>
-<p>![截屏2020-04-09下午5.00.05](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09下午5.00.05.png)</p>
-<h2 id="4-IDEA下的使用"><a href="#4-IDEA下的使用" class="headerlink" title="4)IDEA下的使用"></a>4)IDEA下的使用</h2><h3 id="1-更换镜像源"><a href="#1-更换镜像源" class="headerlink" title="1.更换镜像源"></a>1.更换镜像源</h3><p>在settings.xml中把镜像源换了</p>
-<p>换成我们国内淘宝的镜像源</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- mirror</span></span><br><span class="line"><span class="comment">   | Specifies a repository mirror site to use instead of a given repository. The repository that</span></span><br><span class="line"><span class="comment">   | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used</span></span><br><span class="line"><span class="comment">   | for inheritance and direct lookup purposes, and must be unique across the set of mirrors.</span></span><br><span class="line"><span class="comment">   |</span></span><br><span class="line"><span class="comment">  &lt;mirror&gt;</span></span><br><span class="line"><span class="comment">    &lt;id&gt;mirrorId&lt;/id&gt;</span></span><br><span class="line"><span class="comment">    &lt;mirrorOf&gt;repositoryId&lt;/mirrorOf&gt;</span></span><br><span class="line"><span class="comment">    &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span></span><br><span class="line"><span class="comment">    &lt;url&gt;http://my.repository.com/repo/path&lt;/url&gt;</span></span><br><span class="line"><span class="comment">  &lt;/mirror&gt;</span></span><br><span class="line"><span class="comment">   --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>       </span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-通过部署Web项目验证Maven在IDEA下的安装"><a href="#2-通过部署Web项目验证Maven在IDEA下的安装" class="headerlink" title="2.通过部署Web项目验证Maven在IDEA下的安装"></a>2.通过部署Web项目验证Maven在IDEA下的安装</h3><p>1、新建一个项目工程</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.41.53.png" alt="截屏2020-04-09下午8.41.53"></p>
-<p>2、选择maven 和java版本 勾选creat from archetype</p>
-<p>选择webapp</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.45.36.png" alt="截屏2020-04-09下午8.45.36"></p>
-<p>3、给项目命名</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.46.53.png" alt="截屏2020-04-09下午8.46.53"></p>
-<p>4、选择你前面安装的maven路径和配置的仓库名称</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.47.30.png" alt="截屏2020-04-09下午8.47.30"></p>
-<p>5、出现下面的提示 都点击</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.48.01.png" alt="截屏2020-04-09下午8.48.01"></p>
-<p>6、在与webapp同级的main路径下增加一个java文件</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.50.02.png" alt="截屏2020-04-09下午8.50.02"></p>
-<p>右键点击Mark Directory as Sources Root</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.50.35.png" alt="截屏2020-04-09下午8.50.35"></p>
-<p>7、在Java下新建一个Package (我截图点击的位置不对 )</p>
-<p>取名为com</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.51.34.png" alt="截屏2020-04-09下午8.51.34"></p>
-<p>在com新建一个servlet文件 发现没有这个选析</p>
-<p>打开settings/Project Structure中找到Modules 点击勾选,应用 确定</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.52.16.png" alt="截屏2020-04-09下午8.52.16"></p>
-<p>回到com目录 新建就会发现多了一个servlet文件选项 我们建立一个firstservlet文件</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.52.56.png" alt="截屏2020-04-09下午8.52.56"></p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.53.35.png" alt="截屏2020-04-09下午8.53.35"></p>
-<p>发现新建的web.xml文件有错误</p>
-<p>在底下添加</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%888.54.00.png" alt="截屏2020-04-09下午8.54.00"></p>
-<p>url-pattern不用管他</p>
-<h3 id="配置Maven的tomcat插件"><a href="#配置Maven的tomcat插件" class="headerlink" title="配置Maven的tomcat插件"></a>配置Maven的tomcat插件</h3><p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.14.21.png" alt="截屏2020-04-09下午9.14.21"></p>
-<p>添加</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 添加tomcat插件 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">port</span>&gt;</span>8090<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.16.13.png" alt="截屏2020-04-09下午9.16.13"></p>
-<p>在run 打开edit config</p>
-<p>![截屏2020-04-09下午9.16.37](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09下午9.16.37.png)</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.17.19.png" alt="截屏2020-04-09下午9.17.19"></p>
-<p>记住刚刚添加的依赖的tomcat版本</p>
-<p>我们使用的是7</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.18.22.png" alt="截屏2020-04-09下午9.18.22"></p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.19.47.png" alt="截屏2020-04-09下午9.19.47"></p>
-<p>点击绿色三角运行</p>
-<p>![截屏2020-04-09下午9.20.22](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09下午9.20.22.png)</p>
-<p>回到我们的servlet文件</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.21.02.png" alt="截屏2020-04-09下午9.21.02"></p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.23.31.png" alt="截屏2020-04-09下午9.23.31"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">firstServlet</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">servlet</span>.<span class="title">http</span>.<span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request,response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)</span> <span class="keyword">throws</span> javax.servlet.ServletException, IOException </span>&#123;</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/hello.jsp"</span>).forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后在webapp目录下新建一个hello.jsp文件</p>
-<p>![截屏2020-04-09下午9.25.14](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09下午9.25.14.png)</p>
-<p>再次点击运行</p>
-<p>![截屏2020-04-09下午9.26.07](/Users/apple1/Library/Application Support/typora-user-images/截屏2020-04-09下午9.26.07.png)</p>
-<p>点击<a href="http://localhost:8070/" target="_blank" rel="noopener">http://localhost:8070/</a></p>
-<p>可以看到我们的hello Maven!!!</p>
-<p><img src="/Users/apple1/Desktop/img/%E6%88%AA%E5%B1%8F2020-04-09%E4%B8%8B%E5%8D%889.25.50.png" alt="截屏2020-04-09下午9.25.50"></p>
-<p>说明servlet配置完成!!!</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/09/Maven%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一个hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAhexo/" target="_blank">我的第一个hexo</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAhexo/" class="archive-article-date">
-        <time datetime="2020-04-08T11:57:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>##第一章</p>
-<p>##第二章</p>
-<p>##参考文献</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAhexo/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/04/08/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/04/08/hello-world/" class="archive-article-date">
-        <time datetime="2020-04-08T11:48:29.865Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/04/08/hello-world/">展开全文 >></a>
     </p>
     
 
